@@ -7,7 +7,7 @@ module Plants
       # @param params [Hash]
       # @return [::HTTP::Response]
       def list_distributions(params: {})
-        client.get('distributions', params)
+        client.get('distributions', params: params)
       end
 
       # @param distribution [String]

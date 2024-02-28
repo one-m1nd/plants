@@ -6,7 +6,7 @@ module Plants
       # GET /division_classes
       # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_division_classes(params)
+      def list_division_classes(params: {})
         client.get('division_classes', params: params)
       end
 

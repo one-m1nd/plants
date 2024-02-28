@@ -6,7 +6,7 @@ module Plants
       # GET /corrections
       # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_corrections(params)
+      def list_corrections(params: {})
         client.get('corrections', params: params)
       end
 

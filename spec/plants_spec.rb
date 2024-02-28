@@ -95,4 +95,32 @@ RSpec.describe Plants do
       expect(a_request(:get, "#{Plants::Client::URL}/distributions/hell/plants")).to have_been_made
     end
   end
+
+  describe '.list_genera' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/genus")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.list_genera }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/genus")).to have_been_made
+    end
+  end
+
+  describe '.find_genus' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/genus/euphorbia")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.find_genus('euphorbia') }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/genus/euphorbia")).to have_been_made
+    end
+  end
 end

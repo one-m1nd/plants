@@ -24,7 +24,7 @@ module Plants
 
     # @param resource [String]
     # @param params [Hash]
-    # @return [HTTP::Response]
+    # @return [::HTTP::Response]
     def get(resource, params: {})
       params.merge!({ token: config.token }) if config.token
       http.get("#{URL}/#{resource}", params: params)
@@ -32,7 +32,7 @@ module Plants
 
     private
 
-    # @return [HTTP::Client]
+    # @return [::HTTP::Client]
     def http
       HTTP
         .timeout(5)

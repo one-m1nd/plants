@@ -1,4 +1,5 @@
 module Plants
+  # Configuration class
   #
   # @!attribute token
   #   @return [String]

@@ -291,4 +291,47 @@ RSpec.describe Plants do
       expect(a_request(:get, "#{Plants::Client::URL}/division_orders/foobar")).to have_been_made
     end
   end
+
+  describe '.list_species' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/species")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.list_species }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/species")).to have_been_made
+    end
+  end
+
+  describe 'find_species' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/species/foobar")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.find_species('foobar') }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/species/foobar")).to have_been_made
+    end
+  end
+
+  describe '.search_for_species' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/species/search")
+        .with(query: { q: 'foobar' })
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.search_for_species('foobar') }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/species/search").with(query: { q: 'foobar' })).to have_been_made
+    end
+  end
 end

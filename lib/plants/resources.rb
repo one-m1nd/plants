@@ -5,6 +5,7 @@ require 'plants/resources/families'
 require 'plants/resources/genus'
 require 'plants/resources/kingdoms'
 require 'plants/resources/plants'
+require 'plants/resources/species'
 require 'plants/resources/subkingdoms'
 
 module Plants
@@ -17,6 +18,7 @@ module Plants
     include Genus
     include Kingdoms
     include Plants
+    include Species
     include Subkingdoms
   end
 end

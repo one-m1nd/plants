@@ -207,4 +207,32 @@ RSpec.describe Plants do
       expect(a_request(:get, "#{Plants::Client::URL}/subkingdoms/foobar")).to have_been_made
     end
   end
+
+  describe '.list_divisions' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/divisions")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.list_divisions }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/divisions")).to have_been_made
+    end
+  end
+
+  describe '.find_division' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/divisions/foobar")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.find_division('foobar') }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/divisions/foobar")).to have_been_made
+    end
+  end
 end

@@ -138,7 +138,7 @@ RSpec.describe Plants do
     end
   end
 
-  describe '.find_genus' do
+  describe '.find_family' do
     before(:each) do
       stub_request(:get, "#{Plants::Client::URL}/families/euphorbiaceae")
         .to_return(status: 200, body: '{}')
@@ -149,6 +149,34 @@ RSpec.describe Plants do
     it do
       expect(subject).to be_instance_of(HTTP::Response)
       expect(a_request(:get, "#{Plants::Client::URL}/families/euphorbiaceae")).to have_been_made
+    end
+  end
+
+  describe '.list_kingdoms' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/kingdoms")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.list_kingdoms }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/kingdoms")).to have_been_made
+    end
+  end
+
+  describe '.find_kingdom' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/kingdoms/foobar")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.find_kingdom('foobar') }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/kingdoms/foobar")).to have_been_made
     end
   end
 end

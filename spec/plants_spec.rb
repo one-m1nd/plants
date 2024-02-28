@@ -235,4 +235,32 @@ RSpec.describe Plants do
       expect(a_request(:get, "#{Plants::Client::URL}/divisions/foobar")).to have_been_made
     end
   end
+
+  describe '.list_division_classes' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/division_classes")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.list_division_classes }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/division_classes")).to have_been_made
+    end
+  end
+
+  describe '.find_division_class' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/division_classes/foobar")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.find_division_class('foobar') }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/division_classes/foobar")).to have_been_made
+    end
+  end
 end

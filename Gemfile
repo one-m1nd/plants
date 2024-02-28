@@ -13,4 +13,6 @@ group :development do
   gem "rubocop", "~> 1.21"
 
   gem 'sord', '~> 6'
+
+  gem 'webmock', '~> 3'
 end

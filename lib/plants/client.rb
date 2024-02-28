@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'http'
-require 'logger'
 
+require 'plants/log'
 require 'plants/config'
 require 'plants/version'
 
@@ -35,8 +35,8 @@ module Plants
     # @return [::HTTP::Client]
     def http
       HTTP
-        .timeout(5)
-        .use(logging: { logger: Logger.new(STDOUT) })
+        .timeout(10)
+        .use(logging: { logger: Log.instance })
         .headers({ 'User-Agent' => "Plants #{Plants::VERSION} ruby-#{RUBY_VERSION}" })
     end
   end

@@ -12,6 +12,8 @@ Plants.list_plants # ...
 ```
 
 ### Endpoints
+All methods return an instance of [`HTTP::Response`](https://github.com/httprb/http/wiki/Response-Handling)
+
 #### Corrections
 ```ruby
 # List

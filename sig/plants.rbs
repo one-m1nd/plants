@@ -10,6 +10,29 @@ module Plants
 
   def self.client: () -> Plants::Client
 
+  # GET /subkingdoms
+  def self.list_subkingdoms: () -> ::HTTP::Response
+
+  # _@param_ `kingdom`
+  def self.find_subkingdom: (String kingdom) -> ::HTTP::Response
+
+  # GET /species
+  def self.list_species: () -> ::HTTP::Response
+
+  # _@param_ `species`
+  def self.find_species: (String species) -> ::HTTP::Response
+
+  # _@param_ `species`
+  # 
+  # _@return_ — s
+  def self.search_for_species: (String species) -> ::HTTP::Response
+
+  # GET /kingdoms
+  def self.list_kingdoms: () -> ::HTTP::Response
+
+  # _@param_ `kingdom`
+  def self.find_kingdom: (String kingdom) -> ::HTTP::Response
+
   # GET /genus
   def self.list_genera: () -> ::HTTP::Response
 
@@ -21,6 +44,36 @@ module Plants
 
   # _@param_ `family`
   def self.find_family: (String family) -> ::HTTP::Response
+
+  # GET /divisions
+  def self.list_divisions: () -> ::HTTP::Response
+
+  # _@param_ `division`
+  def self.find_division: (String division) -> ::HTTP::Response
+
+  # GET /division_orders
+  def self.list_division_orders: () -> ::HTTP::Response
+
+  # _@param_ `division_order`
+  def self.find_division_order: (String division_order) -> ::HTTP::Response
+
+  # GET /division_classes
+  def self.list_division_classes: () -> ::HTTP::Response
+
+  # _@param_ `division_class`
+  def self.find_division_class: (String division_class) -> ::HTTP::Response
+
+  # GET /distributions
+  def self.list_distributions: () -> ::HTTP::Response
+
+  # _@param_ `distributions`
+  def self.find_distributions: (String distributions) -> ::HTTP::Response
+
+  # GET /corrections
+  def self.list_corrections: () -> ::HTTP::Response
+
+  # _@param_ `correction`
+  def self.find_correction: (String correction) -> ::HTTP::Response
 
   # HTTP Client
   # 
@@ -54,9 +107,40 @@ module Plants
 
   # Resources 'container' module
   module Resources
+    include Plants::Resources::Corrections
+    include Plants::Resources::Distributions
+    include Plants::Resources::DivisionClasses
+    include Plants::Resources::DivisionOrders
+    include Plants::Resources::Divisions
     include Plants::Resources::Families
     include Plants::Resources::Genus
+    include Plants::Resources::Kingdoms
     include Plants
+    include Plants::Resources::Species
+    include Plants::Resources::Subkingdoms
+
+    # GET /subkingdoms
+    def list_subkingdoms: () -> ::HTTP::Response
+
+    # _@param_ `kingdom`
+    def find_subkingdom: (String kingdom) -> ::HTTP::Response
+
+    # GET /species
+    def list_species: () -> ::HTTP::Response
+
+    # _@param_ `species`
+    def find_species: (String species) -> ::HTTP::Response
+
+    # _@param_ `species`
+    # 
+    # _@return_ — s
+    def search_for_species: (String species) -> ::HTTP::Response
+
+    # GET /kingdoms
+    def list_kingdoms: () -> ::HTTP::Response
+
+    # _@param_ `kingdom`
+    def find_kingdom: (String kingdom) -> ::HTTP::Response
 
     # GET /genus
     def list_genera: () -> ::HTTP::Response
@@ -69,6 +153,36 @@ module Plants
 
     # _@param_ `family`
     def find_family: (String family) -> ::HTTP::Response
+
+    # GET /divisions
+    def list_divisions: () -> ::HTTP::Response
+
+    # _@param_ `division`
+    def find_division: (String division) -> ::HTTP::Response
+
+    # GET /division_orders
+    def list_division_orders: () -> ::HTTP::Response
+
+    # _@param_ `division_order`
+    def find_division_order: (String division_order) -> ::HTTP::Response
+
+    # GET /division_classes
+    def list_division_classes: () -> ::HTTP::Response
+
+    # _@param_ `division_class`
+    def find_division_class: (String division_class) -> ::HTTP::Response
+
+    # GET /distributions
+    def list_distributions: () -> ::HTTP::Response
+
+    # _@param_ `distributions`
+    def find_distributions: (String distributions) -> ::HTTP::Response
+
+    # GET /corrections
+    def list_corrections: () -> ::HTTP::Response
+
+    # _@param_ `correction`
+    def find_correction: (String correction) -> ::HTTP::Response
 
     # Genera module
     # @see https://docs.trefle.io/reference#tag/Genus
@@ -84,12 +198,12 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Plants
     module Plants
       # GET /plants
-      def plants: () -> ::HTTP::Response
+      def list_plants: () -> ::HTTP::Response
 
       # GET /plants/{plant}
       # 
       # _@param_ `plant`
-      def plant: (String plant) -> ::HTTP::Response
+      def find_plant: (String plant) -> ::HTTP::Response
 
       # _@param_ `plant`
       def search_for_plant: (String plant) -> ::HTTP::Response
@@ -101,6 +215,21 @@ module Plants
       def list_plants_for_distribution_zone: (String zone) -> ::HTTP::Response
     end
 
+    # Species module
+    # @see https://docs.trefle.io/reference#tag/Species
+    module Species
+      # GET /species
+      def list_species: () -> ::HTTP::Response
+
+      # _@param_ `species`
+      def find_species: (String species) -> ::HTTP::Response
+
+      # _@param_ `species`
+      # 
+      # _@return_ — s
+      def search_for_species: (String species) -> ::HTTP::Response
+    end
+
     # Families module
     # @see https://docs.trefle.io/reference#tag/Families
     module Families
@@ -109,6 +238,76 @@ module Plants
 
       # _@param_ `family`
       def find_family: (String family) -> ::HTTP::Response
+    end
+
+    # Kingdoms module
+    # @see https://docs.trefle.io/reference#tag/Kingdoms
+    module Kingdoms
+      # GET /kingdoms
+      def list_kingdoms: () -> ::HTTP::Response
+
+      # _@param_ `kingdom`
+      def find_kingdom: (String kingdom) -> ::HTTP::Response
+    end
+
+    # Divisions module
+    # @see https://docs.trefle.io/reference#tag/Divisions
+    module Divisions
+      # GET /divisions
+      def list_divisions: () -> ::HTTP::Response
+
+      # _@param_ `division`
+      def find_division: (String division) -> ::HTTP::Response
+    end
+
+    # Corrections module
+    # @see https://docs.trefle.io/reference#tag/Corrections
+    module Corrections
+      # GET /corrections
+      def list_corrections: () -> ::HTTP::Response
+
+      # _@param_ `correction`
+      def find_correction: (String correction) -> ::HTTP::Response
+    end
+
+    # Subkingdoms module
+    # @see https://docs.trefle.io/reference#tag/Subkingdoms
+    module Subkingdoms
+      # GET /subkingdoms
+      def list_subkingdoms: () -> ::HTTP::Response
+
+      # _@param_ `kingdom`
+      def find_subkingdom: (String kingdom) -> ::HTTP::Response
+    end
+
+    # Distributions module
+    # @see https://docs.trefle.io/reference#tag/Distributions
+    module Distributions
+      # GET /distributions
+      def list_distributions: () -> ::HTTP::Response
+
+      # _@param_ `distributions`
+      def find_distributions: (String distributions) -> ::HTTP::Response
+    end
+
+    # Division orders module
+    # @see https://docs.trefle.io/reference#tag/DivisionOrders
+    module DivisionOrders
+      # GET /division_orders
+      def list_division_orders: () -> ::HTTP::Response
+
+      # _@param_ `division_order`
+      def find_division_order: (String division_order) -> ::HTTP::Response
+    end
+
+    # Division classes module
+    # @see https://docs.trefle.io/reference#tag/DivisionClasses
+    module DivisionClasses
+      # GET /division_classes
+      def list_division_classes: () -> ::HTTP::Response
+
+      # _@param_ `division_class`
+      def find_division_class: (String division_class) -> ::HTTP::Response
     end
   end
 end

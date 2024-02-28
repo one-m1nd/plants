@@ -349,13 +349,13 @@ RSpec.describe Plants do
     end
   end
 
-  describe '.find_distributions' do
+  describe '.find_distribution' do
     before(:each) do
       stub_request(:get, "#{Plants::Client::URL}/distributions/foobar")
         .to_return(status: 200, body: '{}')
     end
 
-    subject { Plants.find_distributions('foobar') }
+    subject { Plants.find_distribution('foobar') }
 
     it do
       expect(subject).to be_instance_of(HTTP::Response)

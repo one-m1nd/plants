@@ -9,10 +9,10 @@ module Plants
         client.get('distributions')
       end
 
-      # @param distributions [String]
+      # @param distribution [String]
       # @return [::HTTP::Response]
-      def find_distributions(distributions)
-        client.get("distributions/#{distributions}")
+      def find_distribution(distribution)
+        client.get("distributions/#{distribution}")
       end
     end
   end

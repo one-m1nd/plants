@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 require 'http'
 
+require 'plants/config'
 require 'plants/version'
+require 'plants/client/resource'
 
 module Plants
   # HTTP Client
@@ -10,11 +12,13 @@ module Plants
   #   @return [Plants::Config]
   #
   class Client
-    # Trefle API URL
-    URL = "https://trefle.io/api/v1".freeze
+    include Resource
+
+    # @return [String] Trefle API URL
+    URL = 'https://trefle.io/api/v1'
 
     # @param config [Plants::Config]
-    def initialize(config)
+    def initialize(config = Config.new)
       @config = config
     end
     attr_reader :config
@@ -24,7 +28,7 @@ module Plants
     # @param params [Hash]
     # @return [HTTP::Response]
     def get(resource, params: {})
-      params.merge({ token: config.token }) if config.token.is_a?(String)
+      params.merge({ token: config.token }) if config.token
       http.get("#{URL}/#{resource}", params: params)
     end
 
@@ -34,7 +38,7 @@ module Plants
     def http
       HTTP
         .timeout(5)
-        .headers({ 'User-Agent' => "Plants #{Plants::VERSION} ruby-#{RUBY_VERSION}" })
+        .headers({ 'User-Agent' => "Plants #{::Plants::VERSION} ruby-#{RUBY_VERSION}" })
     end
   end
 end

@@ -148,7 +148,7 @@ RSpec.describe Plants do
 
     it do
       expect(subject).to be_instance_of(HTTP::Response)
-      expect(a_request(:get, "#{Plants::Client::URL}/genus/euphorbia")).to have_been_made
+      expect(a_request(:get, "#{Plants::Client::URL}/families/euphorbiaceae")).to have_been_made
     end
   end
 end

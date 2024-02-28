@@ -16,6 +16,12 @@ module Plants
   # _@param_ `genus`
   def self.find_genus: (String genus) -> ::HTTP::Response
 
+  # GET /families
+  def self.list_families: () -> ::HTTP::Response
+
+  # _@param_ `family`
+  def self.find_family: (String family) -> ::HTTP::Response
+
   # HTTP Client
   # 
   # @!attribute [r] config
@@ -48,6 +54,7 @@ module Plants
 
   # Resources 'container' module
   module Resources
+    include Plants::Resources::Families
     include Plants::Resources::Genus
     include Plants
 
@@ -56,6 +63,12 @@ module Plants
 
     # _@param_ `genus`
     def find_genus: (String genus) -> ::HTTP::Response
+
+    # GET /families
+    def list_families: () -> ::HTTP::Response
+
+    # _@param_ `family`
+    def find_family: (String family) -> ::HTTP::Response
 
     # Genera module
     # @see https://docs.trefle.io/reference#tag/Genus
@@ -86,6 +99,16 @@ module Plants
 
       # _@param_ `zone`
       def list_plants_for_distribution_zone: (String zone) -> ::HTTP::Response
+    end
+
+    # Families module
+    # @see https://docs.trefle.io/reference#tag/Families
+    module Families
+      # GET /families
+      def list_families: () -> ::HTTP::Response
+
+      # _@param_ `family`
+      def find_family: (String family) -> ::HTTP::Response
     end
   end
 end

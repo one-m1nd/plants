@@ -24,13 +24,13 @@ RSpec.describe Plants do
     end
   end
 
-  describe '.plants' do
+  describe '.list_plants' do
     before(:each) do
       stub_request(:get, "#{Plants::Client::URL}/plants")
         .to_return(status: 200, body: '{}')
     end
 
-    subject { Plants.plants }
+    subject { Plants.list_plants }
 
     it do
       expect(subject).to be_instance_of(HTTP::Response)
@@ -38,13 +38,13 @@ RSpec.describe Plants do
     end
   end
 
-  describe '.plant' do
+  describe '.find_plant' do
     before(:each) do
       stub_request(:get, "#{Plants::Client::URL}/plants/euphorbia-abdelkuri")
         .to_return(status: 200, body: '{}')
     end
 
-    subject { Plants.plant('euphorbia-abdelkuri') }
+    subject { Plants.find_plant('euphorbia-abdelkuri') }
 
     it do
       expect(subject).to be_instance_of(HTTP::Response)

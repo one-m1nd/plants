@@ -5,14 +5,14 @@ module Plants
     module Plants
       # GET /plants
       # @return [::HTTP::Response]
-      def plants
+      def list_plants
         client.get('plants')
       end
 
       # GET /plants/{plant}
       # @param plant [String]
       # @return [::HTTP::Response]
-      def plant(plant)
+      def find_plant(plant)
         client.get("plants/#{plant}")
       end
 

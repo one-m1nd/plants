@@ -2,9 +2,13 @@
 
 require "plants/client"
 require "plants/config"
+require "plants/resources"
 require "plants/version"
 
+# Plants :)
 module Plants
+  extend Plants::Resources
+
   class << self
 
     # @param new_value [String]
@@ -16,12 +20,6 @@ module Plants
     # @return [Plants::Config]
     def config
       client.config
-    end
-
-    # GET /plants
-    # @return [HTTP::Response]
-    def plants
-      client.plants
     end
 
     private

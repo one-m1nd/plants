@@ -11,13 +11,17 @@ module Plants
   def self.client: () -> Plants::Client
 
   # GET /subkingdoms
-  def self.list_subkingdoms: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_subkingdoms: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
   # _@param_ `kingdom`
   def self.find_subkingdom: (String kingdom) -> ::HTTP::Response
 
   # GET /species
-  def self.list_species: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_species: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
   # _@param_ `species`
   def self.find_species: (String species) -> ::HTTP::Response
@@ -28,49 +32,65 @@ module Plants
   def self.search_for_species: (String species) -> ::HTTP::Response
 
   # GET /kingdoms
-  def self.list_kingdoms: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_kingdoms: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
   # _@param_ `kingdom`
   def self.find_kingdom: (String kingdom) -> ::HTTP::Response
 
   # GET /genus
-  def self.list_genera: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_genera: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
   # _@param_ `genus`
   def self.find_genus: (String genus) -> ::HTTP::Response
 
   # GET /families
-  def self.list_families: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_families: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
   # _@param_ `family`
   def self.find_family: (String family) -> ::HTTP::Response
 
   # GET /divisions
-  def self.list_divisions: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_divisions: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
   # _@param_ `division`
   def self.find_division: (String division) -> ::HTTP::Response
 
   # GET /division_orders
-  def self.list_division_orders: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_division_orders: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
   # _@param_ `division_order`
   def self.find_division_order: (String division_order) -> ::HTTP::Response
 
   # GET /division_classes
-  def self.list_division_classes: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_division_classes: (::Hash[untyped, untyped] params) -> ::HTTP::Response
 
   # _@param_ `division_class`
   def self.find_division_class: (String division_class) -> ::HTTP::Response
 
   # GET /distributions
-  def self.list_distributions: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_distributions: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
-  # _@param_ `distributions`
-  def self.find_distributions: (String distributions) -> ::HTTP::Response
+  # _@param_ `distribution`
+  def self.find_distribution: (String distribution) -> ::HTTP::Response
 
   # GET /corrections
-  def self.list_corrections: () -> ::HTTP::Response
+  # 
+  # _@param_ `params`
+  def self.list_corrections: (::Hash[untyped, untyped] params) -> ::HTTP::Response
 
   # _@param_ `correction`
   def self.find_correction: (String correction) -> ::HTTP::Response
@@ -120,13 +140,17 @@ module Plants
     include Plants::Resources::Subkingdoms
 
     # GET /subkingdoms
-    def list_subkingdoms: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_subkingdoms: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
     # _@param_ `kingdom`
     def find_subkingdom: (String kingdom) -> ::HTTP::Response
 
     # GET /species
-    def list_species: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_species: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
     # _@param_ `species`
     def find_species: (String species) -> ::HTTP::Response
@@ -137,49 +161,65 @@ module Plants
     def search_for_species: (String species) -> ::HTTP::Response
 
     # GET /kingdoms
-    def list_kingdoms: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_kingdoms: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
     # _@param_ `kingdom`
     def find_kingdom: (String kingdom) -> ::HTTP::Response
 
     # GET /genus
-    def list_genera: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_genera: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
     # _@param_ `genus`
     def find_genus: (String genus) -> ::HTTP::Response
 
     # GET /families
-    def list_families: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_families: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
     # _@param_ `family`
     def find_family: (String family) -> ::HTTP::Response
 
     # GET /divisions
-    def list_divisions: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_divisions: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
     # _@param_ `division`
     def find_division: (String division) -> ::HTTP::Response
 
     # GET /division_orders
-    def list_division_orders: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_division_orders: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
     # _@param_ `division_order`
     def find_division_order: (String division_order) -> ::HTTP::Response
 
     # GET /division_classes
-    def list_division_classes: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_division_classes: (::Hash[untyped, untyped] params) -> ::HTTP::Response
 
     # _@param_ `division_class`
     def find_division_class: (String division_class) -> ::HTTP::Response
 
     # GET /distributions
-    def list_distributions: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_distributions: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
-    # _@param_ `distributions`
-    def find_distributions: (String distributions) -> ::HTTP::Response
+    # _@param_ `distribution`
+    def find_distribution: (String distribution) -> ::HTTP::Response
 
     # GET /corrections
-    def list_corrections: () -> ::HTTP::Response
+    # 
+    # _@param_ `params`
+    def list_corrections: (::Hash[untyped, untyped] params) -> ::HTTP::Response
 
     # _@param_ `correction`
     def find_correction: (String correction) -> ::HTTP::Response
@@ -188,7 +228,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Genus
     module Genus
       # GET /genus
-      def list_genera: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_genera: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `genus`
       def find_genus: (String genus) -> ::HTTP::Response
@@ -198,7 +240,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Plants
     module Plants
       # GET /plants
-      def list_plants: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_plants: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # GET /plants/{plant}
       # 
@@ -206,20 +250,28 @@ module Plants
       def find_plant: (String plant) -> ::HTTP::Response
 
       # _@param_ `plant`
-      def search_for_plant: (String plant) -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def search_for_plant: (String plant, ?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `genus`
-      def list_plants_for_genus: (String genus) -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_plants_for_genus: (String genus, ?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `zone`
-      def list_plants_for_distribution_zone: (String zone) -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_plants_for_distribution_zone: (String zone, ?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
     end
 
     # Species module
     # @see https://docs.trefle.io/reference#tag/Species
     module Species
       # GET /species
-      def list_species: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_species: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `species`
       def find_species: (String species) -> ::HTTP::Response
@@ -234,7 +286,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Families
     module Families
       # GET /families
-      def list_families: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_families: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `family`
       def find_family: (String family) -> ::HTTP::Response
@@ -244,7 +298,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Kingdoms
     module Kingdoms
       # GET /kingdoms
-      def list_kingdoms: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_kingdoms: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `kingdom`
       def find_kingdom: (String kingdom) -> ::HTTP::Response
@@ -254,7 +310,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Divisions
     module Divisions
       # GET /divisions
-      def list_divisions: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_divisions: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `division`
       def find_division: (String division) -> ::HTTP::Response
@@ -264,7 +322,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Corrections
     module Corrections
       # GET /corrections
-      def list_corrections: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_corrections: (::Hash[untyped, untyped] params) -> ::HTTP::Response
 
       # _@param_ `correction`
       def find_correction: (String correction) -> ::HTTP::Response
@@ -274,7 +334,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Subkingdoms
     module Subkingdoms
       # GET /subkingdoms
-      def list_subkingdoms: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_subkingdoms: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `kingdom`
       def find_subkingdom: (String kingdom) -> ::HTTP::Response
@@ -284,17 +346,21 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Distributions
     module Distributions
       # GET /distributions
-      def list_distributions: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_distributions: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
-      # _@param_ `distributions`
-      def find_distributions: (String distributions) -> ::HTTP::Response
+      # _@param_ `distribution`
+      def find_distribution: (String distribution) -> ::HTTP::Response
     end
 
     # Division orders module
     # @see https://docs.trefle.io/reference#tag/DivisionOrders
     module DivisionOrders
       # GET /division_orders
-      def list_division_orders: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_division_orders: (?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
 
       # _@param_ `division_order`
       def find_division_order: (String division_order) -> ::HTTP::Response
@@ -304,7 +370,9 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/DivisionClasses
     module DivisionClasses
       # GET /division_classes
-      def list_division_classes: () -> ::HTTP::Response
+      # 
+      # _@param_ `params`
+      def list_division_classes: (::Hash[untyped, untyped] params) -> ::HTTP::Response
 
       # _@param_ `division_class`
       def find_division_class: (String division_class) -> ::HTTP::Response

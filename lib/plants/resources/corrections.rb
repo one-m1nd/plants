@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Corrections
     module Corrections
       # GET /corrections
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_corrections
-        client.get('corrections')
+      def list_corrections(params)
+        client.get('corrections', params: params)
       end
 
       # @param correction [String]

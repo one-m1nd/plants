@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/DivisionOrders
     module DivisionOrders
       # GET /division_orders
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_division_orders
-        client.get('division_orders')
+      def list_division_orders(params: {})
+        client.get('division_orders', params: params)
       end
 
       # @param division_order [String]

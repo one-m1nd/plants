@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Plants
     module Plants
       # GET /plants
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_plants
-        client.get('plants')
+      def list_plants(params: {})
+        client.get('plants', params: params)
       end
 
       # GET /plants/{plant}
@@ -17,21 +18,24 @@ module Plants
       end
 
       # @param plant [String]
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def search_for_plant(plant)
-        client.get('plants/search', params: { q: plant })
+      def search_for_plant(plant, params: {})
+        client.get('plants/search', params: params.merge({ q: plant }))
       end
 
       # @param genus [String]
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_plants_for_genus(genus)
-        client.get("genus/#{genus}/plants")
+      def list_plants_for_genus(genus, params: {})
+        client.get("genus/#{genus}/plants", params: params)
       end
 
       # @param zone [String]
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_plants_for_distribution_zone(zone)
-        client.get("distributions/#{zone}/plants")
+      def list_plants_for_distribution_zone(zone, params: {})
+        client.get("distributions/#{zone}/plants", params: params)
       end
     end
   end

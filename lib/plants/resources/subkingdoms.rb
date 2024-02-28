@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Subkingdoms
     module Subkingdoms
       # GET /subkingdoms
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_subkingdoms
-        client.get('subkingdoms')
+      def list_subkingdoms(params: {})
+        client.get('subkingdoms', params: params)
       end
 
       # @param kingdom [String]

@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Kingdoms
     module Kingdoms
       # GET /kingdoms
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_kingdoms
-        client.get('kingdoms')
+      def list_kingdoms(params: {})
+        client.get('kingdoms', params: params)
       end
 
       # @param kingdom [String]

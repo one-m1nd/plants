@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Species
     module Species
       # GET /species
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_species
-        client.get('species')
+      def list_species(params: {})
+        client.get('species', params: params)
       end
 
       # @param species [String]

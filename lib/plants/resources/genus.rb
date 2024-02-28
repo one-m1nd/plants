@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Genus
     module Genus
       # GET /genus
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_genera
-        client.get('genus')
+      def list_genera(params: {})
+        client.get('genus', params: params)
       end
 
       # @param genus [String]

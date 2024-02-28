@@ -4,9 +4,10 @@ module Plants
     # @see https://docs.trefle.io/reference#tag/Distributions
     module Distributions
       # GET /distributions
+      # @param params [Hash]
       # @return [::HTTP::Response]
-      def list_distributions
-        client.get('distributions')
+      def list_distributions(params: {})
+        client.get('distributions', params)
       end
 
       # @param distribution [String]

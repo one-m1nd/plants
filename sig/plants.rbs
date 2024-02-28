@@ -1,4 +1,91 @@
+# Plants :)
 module Plants
+  extend Plants::Resources
   VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  # _@param_ `new_value`
+  def self.token=: (String new_value) -> void
+
+  def self.config: () -> Plants::Config
+
+  def self.client: () -> Plants::Client
+
+  # GET /genus
+  def self.list_genera: () -> ::HTTP::Response
+
+  # _@param_ `genus`
+  def self.find_genus: (String genus) -> ::HTTP::Response
+
+  # HTTP Client
+  # 
+  # @!attribute [r] config
+  #   @return [Plants::Config]
+  class Client
+    URL: String
+
+    # _@param_ `config`
+    def initialize: (?Plants::Config config) -> void
+
+    # _@param_ `resource`
+    # 
+    # _@param_ `params`
+    def get: (String resource, ?params: ::Hash[untyped, untyped]) -> ::HTTP::Response
+
+    def http: () -> ::HTTP::Client
+
+    attr_reader config: Plants::Config
+  end
+
+  # Configuration class
+  # 
+  # @!attribute token
+  #   @return [String]
+  class Config
+    def initialize: () -> void
+
+    attr_accessor token: String
+  end
+
+  # Resources 'container' module
+  module Resources
+    include Plants::Resources::Genus
+    include Plants
+
+    # GET /genus
+    def list_genera: () -> ::HTTP::Response
+
+    # _@param_ `genus`
+    def find_genus: (String genus) -> ::HTTP::Response
+
+    # Genera module
+    # @see https://docs.trefle.io/reference#tag/Genus
+    module Genus
+      # GET /genus
+      def list_genera: () -> ::HTTP::Response
+
+      # _@param_ `genus`
+      def find_genus: (String genus) -> ::HTTP::Response
+    end
+
+    # Plants resource
+    # @see https://docs.trefle.io/reference#tag/Plants
+    module Plants
+      # GET /plants
+      def plants: () -> ::HTTP::Response
+
+      # GET /plants/{plant}
+      # 
+      # _@param_ `plant`
+      def plant: (String plant) -> ::HTTP::Response
+
+      # _@param_ `plant`
+      def search_for_plant: (String plant) -> ::HTTP::Response
+
+      # _@param_ `genus`
+      def list_plants_for_genus: (String genus) -> ::HTTP::Response
+
+      # _@param_ `zone`
+      def list_plants_for_distribution_zone: (String zone) -> ::HTTP::Response
+    end
+  end
 end

@@ -362,4 +362,32 @@ RSpec.describe Plants do
       expect(a_request(:get, "#{Plants::Client::URL}/distributions/foobar")).to have_been_made
     end
   end
+
+  describe '.list_corrections' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/corrections")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.list_corrections }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/corrections")).to have_been_made
+    end
+  end
+
+  describe '.find_correction' do
+    before(:each) do
+      stub_request(:get, "#{Plants::Client::URL}/corrections/foobar")
+        .to_return(status: 200, body: '{}')
+    end
+
+    subject { Plants.find_correction('foobar') }
+
+    it do
+      expect(subject).to be_instance_of(HTTP::Response)
+      expect(a_request(:get, "#{Plants::Client::URL}/corrections/foobar")).to have_been_made
+    end
+  end
 end

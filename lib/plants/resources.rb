@@ -1,3 +1,4 @@
+require 'plants/resources/corrections'
 require 'plants/resources/distributions'
 require 'plants/resources/division_classes'
 require 'plants/resources/division_orders'
@@ -12,6 +13,7 @@ require 'plants/resources/subkingdoms'
 module Plants
   # Resources 'container' module
   module Resources
+    include Corrections
     include Distributions
     include DivisionClasses
     include DivisionOrders

@@ -48,6 +48,12 @@ module Plants
       def instance
         @_instance ||= new
       end
+
+      # @param other_logger [#debug, #info, #warn, #error, #fatal]
+      # @return [void]
+      def instance=(other_logger)
+        @_instance = other_logger
+      end
     end
   end
 end

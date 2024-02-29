@@ -11,6 +11,11 @@ Plants.token = 'your token here'
 Plants.list_plants # ... 
 ```
 
+If you wish to override the log:
+```ruby
+Plants::Log.instance = logger # Your logger here
+```
+
 ### Endpoints
 All methods return an instance of [`HTTP::Response`](https://github.com/httprb/http/wiki/Response-Handling)
 

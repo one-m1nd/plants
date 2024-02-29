@@ -2,7 +2,7 @@
 Gem to interact with the [trefle](https://docs.trefle.io/reference) API.
 
 ## Install
-`spec.add_dependency 'plants', ~> 0`
+`spec.add_dependency 'plants', '~> 0'`
 
 ## Usage
 You need an authorization token, [see this](https://docs.trefle.io/docs/guides/getting-started).

@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Xero"]
   spec.email = ["vhector.1337@gmail.com"]
 
-  spec.summary = "Plants API gem."
+  spec.summary = "Trefle API gem."
   spec.description = "Gem to interact with Trefle API."
   spec.homepage = "https://github.com/one-m1nd/plants"
   spec.required_ruby_version = ">= 3"

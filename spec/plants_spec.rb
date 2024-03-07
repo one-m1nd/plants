@@ -16,6 +16,17 @@ RSpec.describe Plants do
     end
   end
 
+  describe '.timeout=' do
+    after(:each) { Plants.timeout = 10 }
+
+    subject { Plants.timeout = 5 }
+
+    it do
+      subject
+      expect(Plants.config.timeout).to eql 5
+    end
+  end
+
   describe '.config' do
     subject { Plants.config }
 

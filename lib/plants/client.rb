@@ -35,7 +35,7 @@ module Plants
     # @return [::HTTP::Client]
     def http
       HTTP
-        .timeout(10)
+        .timeout(config.timeout)
         .use(logging: { logger: Log.instance })
         .headers({ 'User-Agent' => "Plants #{Plants::VERSION} ruby-#{RUBY_VERSION}" })
     end

@@ -19,6 +19,11 @@ Plants::Log.instance = logger # Your logger here
 ### Endpoints
 All methods return an instance of [`HTTP::Response`](https://github.com/httprb/http/wiki/Response-Handling)
 
+The HTTP timeout is by default 10 seconds, you can override this by:
+```ruby
+Plants.timeout = 5 # new value here
+```
+
 #### Corrections
 ```ruby
 # List

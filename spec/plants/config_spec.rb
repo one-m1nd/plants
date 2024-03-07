@@ -25,4 +25,21 @@ RSpec.describe Plants::Config do
       expect(config.token).to eql('secret')
     end
   end
+
+  describe '#timeout' do
+    subject { config.timeout }
+
+    it do
+      expect(subject).to be_instance_of(Integer)
+    end
+  end
+
+  describe '#timeout=' do
+    subject { config.timeout = 5 }
+
+    it do
+      subject
+      expect(config.timeout).to eql(5)
+    end
+  end
 end

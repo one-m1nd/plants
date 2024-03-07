@@ -17,6 +17,12 @@ module Plants
       client.config.token = new_value
     end
 
+    # @param new_value [Integer]
+    # @return [void]
+    def timeout=(new_value)
+      client.config.timeout = new_value
+    end
+
     # @return [Plants::Config]
     def config
       client.config
